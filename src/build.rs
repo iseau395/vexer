@@ -25,6 +25,7 @@ pub fn build(file: &std::path::PathBuf) -> std::result::Result<(), ()> {
         let output = if cfg!(target_os = "windows") {
             process::Command::new(make.as_str())
                     .args(args)
+                    .current_dir(std::fs::canonicalize(file).expect("Failed to turn file into path!"))
                     .env("path", [
                         std::env::var("path").expect("Failed to fetch PATH env variable!"),
                         [ toolchain.as_str(), "/clang/bin" ].concat(),
