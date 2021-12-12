@@ -11,7 +11,7 @@ pub fn build(file: &std::path::PathBuf) -> std::result::Result<(), ()> {
         eprintln!("VexCode V5 pro is not installed! Please install it to use vexer");
         Err(())
     } else {
-        let toolchain = format!("{}{}", VEXCODE, TOOLCHAIN);
+        let toolchain = [VEXCODE, TOOLCHAIN].concat();
         let make = [ &toolchain, "/tools/bin/make.exe"].concat();
         let sdk = [ &VEXCODE, "/sdk" ].concat();
 

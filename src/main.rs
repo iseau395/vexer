@@ -2,13 +2,6 @@ use structopt::StructOpt;
 
 mod build;
 
-#[cfg(target_os = "windows")]
-pub const HOME: &str = "userprofile";
-
-#[cfg(target_os = "linux")]
-pub const HOME: &str = "HOME";
-
-pub const VEXCODE_DIR: &str = "/.vexer/vexcode";
 
 /// A structure for the arguments
 #[derive(StructOpt)]
@@ -30,6 +23,4 @@ fn main() {
     if args.command == String::from("build") {
         build::build(&args.path).expect("Build Failed");
     }
-
-    println!("{:?}, {:?}", args.command, args.path);
 }
