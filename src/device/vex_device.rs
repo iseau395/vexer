@@ -2,6 +2,8 @@ use serialport::SerialPortBuilder;
 // use super::packets::TXPayload;
 use std::time::SystemTime;
 
+// This is all ported from pros
+
 pub trait VexDevice: super::GenericDevice + super::SystemDevice {
     fn set_default_timeout(&self, timeout: f32);
     fn get_default_timeout(&self) -> f32;

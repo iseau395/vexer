@@ -7,3 +7,6 @@ edition = "2021"
 
 [dependencies]
 structopt = "0.3.13"
+serialport = "4.0.1"
+chrono = "0.4.19"
+packed_struct = "0.10"

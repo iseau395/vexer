@@ -1,5 +1,7 @@
 use structopt::StructOpt;
 
+mod device;
+
 mod build;
 
 /// A structure for the arguments
@@ -17,7 +19,10 @@ struct Vexer {
 fn main() {
     let args = Vexer::from_args();
 
-    if args.command == String::from("build") {
-        build::build(&args.path).expect("Build Failed");
+    match args.command.as_str() {
+        "build" => {
+            build::build(&args.path).expect("Build Failed");
+        }
+        _ => eprintln!("Unknown command, \"{}\"", args.command)
     }
 }

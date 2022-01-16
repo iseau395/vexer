@@ -1,9 +1,12 @@
 use std::path;
 use std::process;
 
+#[cfg(target_os = "windows")]
 pub const VEXCODE: &str = "C:/Program Files (x86)/Vex Robotics/VEXcode Pro V5";
+
 pub const TOOLCHAIN: &str = "/toolchain/vexv5/win32";
 
+/// Build a VEXCode program
 pub fn build(file: &std::path::PathBuf) -> std::result::Result<(), ()> {
     let vexcode = path::PathBuf::from(VEXCODE);
 
